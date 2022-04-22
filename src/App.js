@@ -1,7 +1,13 @@
+import About from "./components/About";
+import Hero from "./components/Hero";
+import Nav from "./components/NavBar";
+
 function App() {
   return (
     <div>
-      loopstudio landing page
+      <Nav/>
+      <Hero/>
+      <About/>
     </div>
   );
 }
