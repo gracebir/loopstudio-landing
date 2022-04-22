@@ -1,4 +1,6 @@
 import About from "./components/About";
+import Creations from "./components/Creations";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Nav from "./components/NavBar";
 
@@ -8,6 +10,8 @@ function App() {
       <Nav/>
       <Hero/>
       <About/>
+      <Creations/>
+      <Footer/>
     </div>
   );
 }
