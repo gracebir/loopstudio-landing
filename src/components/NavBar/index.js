@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from "styled-components"
 
 const NavWrapper = styled.div`
@@ -19,6 +20,9 @@ const Hamburger = styled.img`
     &:hover{
         cursor: pointer;
     }
+    @media (min-width: 45em) {
+      display: none;
+    }
 `
 
 const NavRight = styled.div`
@@ -30,7 +34,13 @@ const NavRight = styled.div`
   inset: 0 0 0 0%;
   gap: 1.5em;
   padding: 2rem;
-  transform: translateX(100%);
+  transform: ${props => props.open ? 'translateX(100%)': 'translateX(-100%)'};
+  transition: transform 0.3s ease-in-out;
+  @media (min-width: 45em) {
+    flex-direction: row;
+    position: absolute;
+    background-color: none;
+  }
 `
 
 const NavLink = styled.p`
@@ -38,6 +48,10 @@ const NavLink = styled.p`
   color: var(--color-white);
   text-transform: uppercase;
   font-family: 'Josefin Sans', sans-serif;
+  @media (min-width: 45em) {
+    text-transform: normal;
+    font-family: 'Alata', sans-serif;
+  }
 `
 
 const NavMobBrand = styled.div`
@@ -45,28 +59,37 @@ const NavMobBrand = styled.div`
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5rem;
+  @media (min-width: 45em) {
+    display: none;
+  }
 `
 
 const Nav = () => {
   //navigation hidding functionality
+  const [isOpen, setIsOpen] = React.React(false);
+  const onClickHandle = ()=>{
+    if(isOpen){
+      setIsOpen(false)
+    } else {
+      setIsOpen(true)
+    }
+  }
   return (
     <NavWrapper>
       <NavBrand>
           loopstudios
       </NavBrand>
       <Hamburger
-      aria-controls="primary-navigation" 
-      aria-expanded="false"
+      onClick={onClickHandle}
       src="images/icon-hamburger.svg" 
       alt=""/>
-      <NavRight id="primary-navigation">
+      <NavRight open={isOpen}>
         <NavMobBrand>
           <NavBrand>
             loopstudios
           </NavBrand>
           <Hamburger
-            aria-controls="primary-navigation" 
-            aria-expanded="false"
+            onClick={onClickHandle}
             src="images/icon-close.svg" 
             alt=""/>
         </NavMobBrand>
