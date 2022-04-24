@@ -48,6 +48,7 @@ const NavMobBrand = styled.div`
 `
 
 const Nav = () => {
+  //navigation hidding functionality
   return (
     <NavWrapper>
       <NavBrand>
