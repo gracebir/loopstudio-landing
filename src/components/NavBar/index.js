@@ -16,14 +16,35 @@ const NavBrand = styled.h3`
 `
 
 const Hamburger = styled.img`
-    
     &:hover{
         cursor: pointer;
     }
 `
 
 const NavRight = styled.div`
-  display: none;
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-black);
+  z-index: 1000;
+  inset: 0 0 0 0%;
+  gap: 1.5em;
+  padding: 2rem;
+  transform: translateX(100%);
+`
+
+const NavLink = styled.p`
+  font-weight: 500;
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-family: 'Josefin Sans', sans-serif;
+`
+
+const NavMobBrand = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5rem;
 `
 
 const Nav = () => {
@@ -32,11 +53,37 @@ const Nav = () => {
       <NavBrand>
           loopstudios
       </NavBrand>
-      <Hamburger 
+      <Hamburger
+      aria-controls="primary-navigation" 
+      aria-expanded="false"
       src="images/icon-hamburger.svg" 
       alt=""/>
-      <NavRight>
-        
+      <NavRight id="primary-navigation">
+        <NavMobBrand>
+          <NavBrand>
+            loopstudios
+          </NavBrand>
+          <Hamburger
+            aria-controls="primary-navigation" 
+            aria-expanded="false"
+            src="images/icon-close.svg" 
+            alt=""/>
+        </NavMobBrand>
+        <NavLink>
+          About
+        </NavLink>
+        <NavLink>
+          Careers
+        </NavLink>
+        <NavLink>
+          Events
+        </NavLink>
+        <NavLink>
+          Products
+        </NavLink>
+        <NavLink>
+          Supports
+        </NavLink>
       </NavRight>
     </NavWrapper>
   )
