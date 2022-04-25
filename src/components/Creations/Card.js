@@ -12,6 +12,9 @@ const CardWrapper = styled.div`
     margin: 0;
     @media (min-width: 45em) {
       background-image: url(${props => `images/desktop/${props.imageurl}`});
+      height: 70vh;
+      align-items: flex-end;
+      padding: 2em 2em;
     }
 `
 
@@ -22,6 +25,9 @@ const Label = styled.h3`
     width: 8em;
     padding: 1em;
     text-transform: uppercase;
+    @media (min-width: 45em) {
+      font-size: 2rem;
+    }
 `
 
 const Card = ({label, imageurl}) => {
