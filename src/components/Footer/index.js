@@ -7,6 +7,11 @@ const FooterWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 2em;
+  @media (min-width: 45em) {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 2em 12em;
+  }
 `
 
 const FooterContent = styled.div`
@@ -16,25 +21,49 @@ const FooterContent = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 2em;
+    @media (min-width: 45em) {
+    align-items: flex-start;
+  }
 `
 
 const FooterLinks = styled.div`
   display: flex;
   flex-direction: column;
   gap: .7em;
+  @media (min-width: 45em) {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
 `
 
 const FooterLink = styled.span`
   font-size: 13px;
+  @media (min-width: 45em) {
+    font-size: 16px;
+    cursor: pointer;
+  }
 `
 
 const FooterTitle = styled.h3`
   font-family: 600;
+  @media (min-width: 45em) {
+    font-size: 2em;
+  }
 `
 
 const FooterIcons = styled.div`
   display: flex;
   gap: .7em;
+  @media (min-width: 45em) {
+    gap: 1em;
+  }
+`
+
+const IconFooter = styled.img`
+  @media (min-width: 45em) {
+    cursor: pointer;
+  }
 `
 
 const FooterRight = styled.div`
@@ -42,6 +71,10 @@ const FooterRight = styled.div`
   flex-direction: column;
   align-items: center;
   gap: 1em;
+  @media (min-width: 45em) {
+    align-items: flex-end;
+    gap: 2em;
+  }
 `
 
 const SpanFooter = styled.span`
@@ -64,10 +97,10 @@ const Footer = () => {
       </FooterContent>
       <FooterRight>
         <FooterIcons>
-          <img src="images/icon-facebook.svg" alt="" />
-          <img src="images/icon-twitter.svg" alt="" />
-          <img src="images/icon-pinterest.svg" alt="" />
-          <img src="images/icon-instagram.svg" alt="" />
+          <IconFooter src="images/icon-facebook.svg" alt="" />
+          <IconFooter src="images/icon-twitter.svg" alt="" />
+          <IconFooter src="images/icon-pinterest.svg" alt="" />
+          <IconFooter src="images/icon-instagram.svg" alt="" />
         </FooterIcons>
         <SpanFooter>&copy; 2021 Loopstudios. All rights reserved.</SpanFooter>
       </FooterRight>
