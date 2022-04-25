@@ -4,13 +4,14 @@ import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import Nav from "./components/NavBar";
 
+
 function App() {
   return (
     <div>
       <Nav/>
-      <Hero/>
-      <About/>
-      <Creations/>
+        <Hero/>
+        <About/>
+        <Creations/>
       <Footer/>
     </div>
   );

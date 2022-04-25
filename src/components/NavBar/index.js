@@ -9,11 +9,18 @@ const NavWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media (min-width: 45em) {
+      padding: 4em 12em;
+    }
+
 `
 const NavBrand = styled.h3`
     font-weight: 600;
     font-size: 25px;
     color: var(--color-white);
+    @media (min-width: 45em) {
+      font-size: 36px;
+    }
 `
 
 const Hamburger = styled.img`
@@ -25,7 +32,7 @@ const Hamburger = styled.img`
     }
 `
 
-const NavRight = styled.div`
+const MobileNav = styled.div`
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -33,13 +40,11 @@ const NavRight = styled.div`
   z-index: 1000;
   inset: 0 0 0 0%;
   gap: 1.5em;
-  padding: 2rem;
-  transform: ${props => props.open ? 'translateX(100%)': 'translateX(-100%)'};
+  padding: 3em 1.4em;
+  transform: ${props => props.open ? 'translateX(100%)': 'translateX(0)'};
   transition: transform 0.3s ease-in-out;
   @media (min-width: 45em) {
-    flex-direction: row;
-    position: absolute;
-    background-color: none;
+   display: none;
   }
 `
 
@@ -49,8 +54,13 @@ const NavLink = styled.p`
   text-transform: uppercase;
   font-family: 'Josefin Sans', sans-serif;
   @media (min-width: 45em) {
-    text-transform: normal;
+    text-transform: capitalize;
     font-family: 'Alata', sans-serif;
+    font-size: 16px;
+    cursor: pointer;
+    &:hover{
+      color: var(--color-very-dark-gray);
+    }
   }
 `
 
@@ -64,9 +74,17 @@ const NavMobBrand = styled.div`
   }
 `
 
+const DesktopNav = styled.div`
+  display: none;
+  @media (min-width: 45em) {
+    display: flex;
+    gap: 1em;
+  }
+`
+
 const Nav = () => {
   //navigation hidding functionality
-  const [isOpen, setIsOpen] = React.React(false);
+  const [isOpen, setIsOpen] = React.useState(false);
   const onClickHandle = ()=>{
     if(isOpen){
       setIsOpen(false)
@@ -83,7 +101,7 @@ const Nav = () => {
       onClick={onClickHandle}
       src="images/icon-hamburger.svg" 
       alt=""/>
-      <NavRight open={isOpen}>
+      <MobileNav open={isOpen}>
         <NavMobBrand>
           <NavBrand>
             loopstudios
@@ -108,7 +126,24 @@ const Nav = () => {
         <NavLink>
           Supports
         </NavLink>
-      </NavRight>
+      </MobileNav>
+      <DesktopNav>
+          <NavLink>
+            About
+          </NavLink>
+          <NavLink>
+            Careers
+          </NavLink>
+          <NavLink>
+            Events
+          </NavLink>
+          <NavLink>
+            Products
+          </NavLink>
+          <NavLink>
+            Supports
+          </NavLink>
+      </DesktopNav>
     </NavWrapper>
   )
 }

@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
     *{
@@ -18,5 +18,11 @@ export const GlobalStyle = createGlobalStyle`
         font-family: 'Alata', sans-serif;
         font-size: 15px;
         font-size: 400;
+    }
+`
+
+export const Container = styled.div`
+    @media (min-width: 45em) {
+        padding: 0 10em;
     }
 `
